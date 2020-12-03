@@ -23,7 +23,6 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax on
 
-
 "------------------------------------------------------------
 " Must have options {{{1
 "
@@ -156,4 +155,35 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Tab movements
+map <Leader>n <esc>:tabnext<CR>
+map <Leader>p <esc>:tabprevious<CR>
+
+" Window movements
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" Indentation adjustments
+vnoremap < <gv
+vnoremap > >gv
+
 "------------------------------------------------------------
+" Filetype Settings {{{1
+"
+" Set the filetype based on the file's extension, overriding any 'filetype'
+" that has already been set JSX
+au BufRead,BufNewFile *.jsx set filetype=javascript
+
+" Set the filetype based on the file's extension, but only if 'filetype' has
+" not already been set
+"au BufRead,BufNewFile *.jsx setfiletype javascript
+
+"------------------------------------------------------------
+" Other Settings {{{1
+"
+" add underline on current line in insert mode
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
